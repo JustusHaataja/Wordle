@@ -19,6 +19,9 @@ body {
     font-size: clamp(.5rem, 2.5vmin, 1.5rem);
 }
 
+
+/* Keyboard buttons */
+
 .keyboard {
     display: grid;
     grid-template-columns: repeat(20, minmax(auto, 1.25em)); 
@@ -52,6 +55,84 @@ body {
     grid-column: span 3;
 }
 
+
+/* Settings buttons */
+
+.settings {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    margin-top: 2em;
+}
+
+.settings button, .settings label {
+    font-size: inherit;
+    width: 120px;  
+    height: 40px;
+    padding: 0;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: hsl(
+        var(--hue, 200),
+        var(--saturation, 1%),
+        calc(var(--lightness-offset, 0%) + var(--lightness, 51%))
+    );
+    color: white;
+    border-radius: .30em;
+    cursor: pointer;
+    user-select: none;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.settings label {
+    position: relative;
+}
+
+.settings label:after {
+    content: "";
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background-image: url("http://purecatamphetamine.github.io/country-flag-icons/3x2/GB.svg");
+    background-size: cover;
+    background-position: center;
+    border-radius: .30em;
+    transition: 0.3s;
+}
+
+.settings input {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.settings input:checked + label:after {
+    left: 100%;
+    transform: translateX(-100%);
+    background-image: url("http://purecatamphetamine.github.io/country-flag-icons/3x2/FI.svg");
+    background-size: cover;
+    background-position: center;
+}
+
+.settings input:disabled + label.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.settings button:hover, .settings button:focus {
+    --lightness-offset: -10%;
+}
+
+.settings label:hover, .settings label:focus {
+    --lightness-offset: -10%;
+}
+
 .key:hover, .key:focus {
     --lightness-offset: 10%;
 }
@@ -77,6 +158,9 @@ body {
     opacity: 0.5;
     background-color: hsl(240, 2%, 23%);
 }
+
+
+/* Guess grid */
 
 #guess-grid {
     display: grid;
@@ -177,6 +261,9 @@ body {
         transform: rotateY(0);
     }
 }
+
+
+/* Alert */
 
 .alert-container {
   position: fixed;
