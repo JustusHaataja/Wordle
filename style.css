@@ -55,20 +55,48 @@ body {
     grid-column: span 3;
 }
 
+.key:hover, .key:focus {
+    --lightness-offset: 10%;
+}
+
+.key.wrong {
+    --lightness: 20%;
+}
+
+.key.wrong-location {
+    --hue: 49;
+    --saturation: 51%;
+    --lightness: 47%;
+}
+
+.key.correct {
+    --hue: 115;
+    --saturation: 29%;
+    --lightness: 43%;
+}
+
+[data-key][data-disabled="true"] {
+    pointer-events: none;
+    opacity: 0.5;
+    background-color: hsl(240, 2%, 23%);
+}
+
 
 /* Settings buttons */
 
 .settings {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 2em;
+    gap: 3em;
     margin-top: 2em;
+    padding: 0 1em;
 }
 
 .settings button, .settings label {
-    font-size: inherit;
-    width: 120px;  
-    height: 40px;
+    font-size: 1rem;
+    width: min(120px, 30vw);  
+    height: min(40px, 10vw);
     padding: 0;
     display: flex; 
     align-items: center;
@@ -133,32 +161,13 @@ body {
     --lightness-offset: -10%;
 }
 
-.key:hover, .key:focus {
-    --lightness-offset: 10%;
+@media (max-width: 600px) {
+    .settings {
+        flex-direction: column;
+        align-items: center;
+        gap: .5em;
+    }
 }
-
-.key.wrong {
-    --lightness: 20%;
-}
-
-.key.wrong-location {
-    --hue: 49;
-    --saturation: 51%;
-    --lightness: 47%;
-}
-
-.key.correct {
-    --hue: 115;
-    --saturation: 29%;
-    --lightness: 43%;
-}
-
-[data-key][data-disabled="true"] {
-    pointer-events: none;
-    opacity: 0.5;
-    background-color: hsl(240, 2%, 23%);
-}
-
 
 /* Guess grid */
 
