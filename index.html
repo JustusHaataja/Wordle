@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wordle from Wish</title>
+    <title>Wordle clone</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Wordle from Wish</h1>
+        <h1>Wordle Clone</h1>
     <div class="alert-container" data-alert-container></div>
     <div id="guess-grid">
         <div class="tile"></div>
@@ -73,6 +73,11 @@
         <button class="key" data-key="N">N</button>
         <button class="key" data-key="M">M</button>
         <button data-enter class="key large">Enter</button>
+    </div>
+    <div class="settings">
+        <button id="restart-button">Restart</button>
+        <input type="checkbox" id="language-toggle"/>
+        <label for="language-toggle"></label>
     </div>
     
     <script src="app.js" defer></script>
